@@ -1,0 +1,22 @@
+{
+  "name": "DreamyPlus",
+  "version": "0.0.1",
+  "description": "Jeju National University ICT Enhancements",
+  "manifest_version": 2,
+  "author": "x86chi",
+  "permissions": ["*://dreamy.jejunu.ac.kr/*", "webRequest", "cookies"],
+  "content_scripts": [
+    {
+      "run_at": "document_start",
+      "matches": ["*://dreamy.jejunu.ac.kr/frame/index.do*"],
+      "js": ["login.js"],
+      "css": ["login.css"]
+    },
+    {
+      "run_at": "document_start",
+      "matches": ["*://dreamy.jejunu.ac.kr/frame/main.do*"],
+      "js": ["main.js"],
+      "css": ["main.css"]
+    }
+  ]
+}
