@@ -1,6 +1,8 @@
 import { h, FunctionComponent, Fragment } from 'preact'
 import { useState } from 'preact/hooks'
 
+import { FormEvent } from 'react'
+
 import axios from 'axios'
 
 import base64 from '../../utils/base64'
@@ -13,7 +15,7 @@ const App: FunctionComponent<AppProps> = ({ optOutUrl }) => {
   const [id, setId] = useState('')
   const [pw, setPw] = useState('')
 
-  const handleSubmit = async (e: Event) => {
+  const handleSubmit = async (e: FormEvent) => {
     const id: string = e.target[0].value
     const pw: string = e.target[1].value
     const encForm = new FormData()
