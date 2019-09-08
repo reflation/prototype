@@ -3,14 +3,19 @@ import * as webpack from 'webpack'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 
-interface GetConfigOption {
-  entry: string
-  filename: string
-  outputDir?: 'dist' | 'tmp'
+interface multipleEnrty {
+  login: string
+  main: string
 }
-export default function getSharedWebpackConfig(
-  option: GetConfigOption
-): webpack.Configuration {
+
+interface GetConfigOption {
+  entry: multipleEnrty
+  output: webpack.Output
+}
+export function getSharedWebpackConfig({
+  entry,
+  output,
+}: GetConfigOption): webpack.Configuration {
   const mode = (process.env.NODE_ENV ||
     'development') as webpack.Configuration['mode']
   const isDev = mode === 'development'
@@ -23,11 +28,8 @@ export default function getSharedWebpackConfig(
   }
   return {
     mode,
-    entry: option.entry,
-    output: {
-      filename: option.filename,
-      path: path.resolve(__dirname, '..', option.outputDir || 'public'),
-    },
+    entry,
+    output,
     resolve: {
       extensions: ['.js', '.ts', '.tsx'],
     },

@@ -7,11 +7,11 @@ import {
 } from '../utils/reconstruct.ts'
 
 import { h, render } from 'preact'
-if (process.env.NODE_ENV === 'development') require('preact/debug')
+import 'preact/debug'
 
-import App from './view/App.tsx'
+import { App } from './view/App.tsx'
 
-async function main() {
+const main = async () => {
   if (isOptOut()) return
   if (await isSessionExpired()) location.href = 'index.do'
   reconstruct('메인')
