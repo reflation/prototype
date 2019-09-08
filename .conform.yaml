@@ -1,0 +1,26 @@
+policies:
+  - type: commit
+    spec:
+      headerLength: 72
+      dco: true
+      gpg: false
+      imperative: true
+      maximumOfOneCommit: true
+      requireCommitBody: false
+      conventional:
+        types:
+          - init
+          - feat
+          - module
+          - style
+          - fix
+          - test
+          - policy
+          - refact
+          - file
+          - docs
+        scopes:
+          - remove
+          - hot
+          - update
+          - config
