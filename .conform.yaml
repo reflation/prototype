@@ -20,4 +20,5 @@ policies:
           - policy
           - hot
           - update
+          - remove
           - config

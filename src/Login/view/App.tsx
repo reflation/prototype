@@ -1,8 +1,6 @@
 import { h, FunctionComponent, Fragment } from 'preact'
 import { useState } from 'preact/hooks'
 
-import { FormEvent } from 'react'
-
 import axios from 'axios'
 
 import base64 from '../../utils/base64'
