@@ -1,7 +1,7 @@
 const keyStr =
   'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
 
-export default function encode64(input: string) {
+export const encode = (input: string) => {
   let output = ''
   let chr1: string, chr2: string, chr3: string
   let enc1: string, enc2: string, enc3: string, enc4: string

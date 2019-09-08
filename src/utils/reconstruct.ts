@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const optOutQueryKey = 'plus'
 
-export async function isSessionExpired() {
+export const isSessionExpired = async () => {
   const { data } = await axios.get<string>(
     'https://dreamy.jejunu.ac.kr/frame/main.do',
     { headers: { Cookie: document.cookie } }
@@ -11,11 +11,11 @@ export async function isSessionExpired() {
   return data.includes('Session 이 종료되었습니다.')
 }
 
-export function isOptOut() {
+export const isOptOut = () => {
   return window.location.search.indexOf(`${optOutQueryKey}=false`) !== -1
 }
 
-export function optOutUrl() {
+export const optOutUrl = () => {
   let query = window.location.search
   if (query) {
     query += `&${optOutQueryKey}=false`
@@ -25,7 +25,7 @@ export function optOutUrl() {
   return window.location.origin + window.location.pathname + query
 }
 
-export function reconstruct(title: string) {
+export const reconstruct = (title: string) => {
   {
     // popup 창 못 띄우게 만들기
     window.open = () => null

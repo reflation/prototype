@@ -3,7 +3,7 @@ import { useState } from 'preact/hooks'
 
 import axios from 'axios'
 
-import base64 from '../../utils/base64'
+import { encode } from '../../utils/base64'
 
 interface AppProps {
   optOutUrl: string
@@ -11,11 +11,10 @@ interface AppProps {
 
 const App: FunctionComponent<AppProps> = ({ optOutUrl }) => {
   const handleSubmit = async (e: Event) => {
-    const id: string = e.target[0].value
-    const pw: string = e.target[1].value
+    const [tId, tPw] = e.target
     const encForm = new FormData()
-    encForm.append('tmpu', base64(id))
-    encForm.append('tmpw', base64(pw))
+    encForm.append('tmpu', encode(tId.value))
+    encForm.append('tmpw', encode(tPw.value))
 
     e.preventDefault()
 
@@ -59,5 +58,3 @@ const App: FunctionComponent<AppProps> = ({ optOutUrl }) => {
     </Fragment>
   )
 }
-
-export default App
