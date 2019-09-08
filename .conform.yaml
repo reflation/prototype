@@ -24,3 +24,4 @@ policies:
           - hot
           - update
           - config
+          - readme
