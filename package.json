@@ -44,7 +44,7 @@
     "sucrase": "^3.10.1",
     "typescript": "^3.6.2",
     "web-ext": "^3.1.1",
-    "webpack": "^4.39.3",
+    "webpack": "^4.40.2",
     "webpack-command": "^0.5.0"
   },
   "husky": {
